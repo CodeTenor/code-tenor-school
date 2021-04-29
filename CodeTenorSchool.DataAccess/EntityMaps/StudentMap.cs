@@ -21,11 +21,11 @@ namespace CodeTenorSchool.DataAccess.EntityMaps
             builder.Property(s => s.Age)
                 .IsRequired(true);
 
-            builder.HasData(
-                new Student("Jason", "Pietersen", 26),
-                new Student("Sean", "Pietersen", 23),
-                new Student("Claudia", "Pietersen", 50)
-            );
+            //builder.HasData(
+            //    new Student("Jason", "Pietersen", 26),
+            //    new Student("Sean", "Pietersen", 23),
+            //    new Student("Claudia", "Pietersen", 50)
+            //);
         }
     }
 }

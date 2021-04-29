@@ -1,15 +1,15 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CodeTenorSchool.Entities
 {
-    public class Student: Person
+    public class Teacher: Person
     {
-        public string StudentNo { get; }
+        public string StaffNo { get; }
         public virtual List<Course> Courses { get; }
 
-        public Student(string studentNo, string name, string surname, int age, string idNo, List<Course> courses = null) : base(name, surname, age, idNo)
+        public Teacher(string staffNo, string name, string surname, int age, string idNo, List<Course> courses = null) : base(name, surname, age, idNo)
         {
-            StudentNo = studentNo;
+            StaffNo = staffNo;
 
             if (courses == null)
             {
