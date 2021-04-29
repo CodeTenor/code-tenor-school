@@ -2,6 +2,7 @@
 {
     public static class ExceptionMessages
     {
-        public static string StudentNotFound = "student not found";
+        public static string StudentNotFound = "Student Not Found";
+        public static string ErrorRetrievingPersonalInformation = "Error Retrieving Personal Details";
     }
 }

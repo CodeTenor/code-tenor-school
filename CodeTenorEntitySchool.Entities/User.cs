@@ -1,13 +1,13 @@
 ﻿namespace CodeTenorSchool.Entities
 {
-    public class Person: DomainEntity
+    public class User: DomainEntity
     {
         public string Name { get; set; }
         public string Surname { get; set; }
         public int Age { get; set; }
         public string IdNo { get; set; }
 
-        public Person(string name, string surname, int age, string idNo)
+        public User(string name, string surname, int age, string idNo)
         {
             Name = name;
             Surname = surname;

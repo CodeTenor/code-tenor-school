@@ -2,14 +2,16 @@
 
 namespace CodeTenorSchool.Entities
 {
-    public class Teacher: Person
+    public class Teacher: DomainEntity
     {
         public string StaffNo { get; }
         public virtual List<Course> Courses { get; }
+        public virtual User User { get; set; }
 
-        public Teacher(string staffNo, string name, string surname, int age, string idNo, List<Course> courses = null) : base(name, surname, age, idNo)
+        public Teacher(string staffNo, User user, List<Course> courses = null)
         {
             StaffNo = staffNo;
+            User = user;
 
             if (courses == null)
             {

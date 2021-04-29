@@ -2,14 +2,16 @@ using System.Collections.Generic;
 
 namespace CodeTenorSchool.Entities
 {
-    public class Student: Person
+    public class Student: DomainEntity
     {
         public string StudentNo { get; }
         public virtual List<Course> Courses { get; }
+        public virtual User User { get; set; }
 
-        public Student(string studentNo, string name, string surname, int age, string idNo, List<Course> courses = null) : base(name, surname, age, idNo)
+        public Student(string studentNo, User user, List<Course> courses = null)
         {
             StudentNo = studentNo;
+            User = user;
 
             if (courses == null)
             {
