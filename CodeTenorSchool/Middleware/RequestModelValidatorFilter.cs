@@ -1,14 +1,17 @@
 ﻿using CodeTenorSchool.Application.DTOs.request;
-using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http.Controllers;
+using System.Web.Http.Filters;
 
 namespace CodeTenorSchool.Middleware
 {
-    public class RequestModelValidator : ActionFilterAttribute
+    public class RequestModelValidatorFilter : ActionFilterAttribute
     {
-        public override void OnActionExecuting(ActionExecutingContext context)
+        public override void OnActionExecuting(HttpActionContext context)
         {
             var param = context.ActionArguments.SingleOrDefault(p => p.Value is IRequest);
 
@@ -21,7 +24,7 @@ namespace CodeTenorSchool.Middleware
             {
                 List<RequestModelError> errors = context.ModelState.Values.SelectMany(v => v.Errors).Select(m => new RequestModelError() { Error = m.ErrorMessage }).ToList();
 
-                throw new Exception(string.Join(',', errors.Select(x => x.Error)));
+                context.Request.CreateErrorResponse(HttpStatusCode.BadRequest, string.Join(',', errors.Select(x => x.Error)));
             }
         }
 

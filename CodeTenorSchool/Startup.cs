@@ -13,6 +13,7 @@ using CodeTenorSchool.ExceptionHandler;
 using CodeTenorSchool.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using CodeTenorSchool.DataAccess.Repositories;
+using CodeTenorSchool.Middleware;
 
 namespace CodeTenorSchool
 {
@@ -42,6 +43,8 @@ namespace CodeTenorSchool
                 options.UseSqlServer("Server=.;Database=CodeTenorSchool;Trusted_Connection=True;MultipleActiveResultSets=true"));
 
             services.AddScoped<ICodeTenorSchoolDBContext>(provider => provider.GetService<CodeTenorSchoolDBContext>());
+
+            services.AddScoped<RequestModelValidatorFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
